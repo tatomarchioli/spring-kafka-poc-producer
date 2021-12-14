@@ -2,11 +2,17 @@
   "namespace": "com.usina.kpoc.producer.models",
   "type": "record",
   "name": "User",
+  "version": "2",
   "fields": [
     {
       "name": "name",
       "type": "string",
       "avro.java.string": "String"
+    },
+    {
+      "name": "surname",
+      "type": "string",
+      "default": ""
     },
     {
       "name": "age",
