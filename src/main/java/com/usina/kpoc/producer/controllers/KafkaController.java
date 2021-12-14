@@ -5,18 +5,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.usina.kpoc.producer.TopicProducer;
+import com.usina.kpoc.producer.models.User;
+import com.usina.kpoc.producer.producers.KafkaProducer;
 
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
 	
 	@Autowired
-    private TopicProducer topicProducer;
+    private KafkaProducer topicProducer;
     
     @GetMapping (value = "/send")    
     public void send(){
-        topicProducer.send("Mensagem de teste enviada ao tópico");
+    	
+        topicProducer.send(new User("teste", 20));
     }
     
 }
